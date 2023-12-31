@@ -14,6 +14,7 @@ function App() {
   const [hide, setHide] = useState("");
   const [done, setDone] = useState(false);
   const [msg, setMsg] = useState([
+    "Welcome 2024",
     "Thank You 2023 ✨",
     "So Much Story We Made In 2023",
     "Let's begin new story in 2024",
@@ -55,7 +56,7 @@ function App() {
   };
 
   function timeLeft() {
-    const newYearDate = new Date("January 1, 2024 00:00:00");
+    const newYearDate = new Date("January 1, 2025 00:00:00");
     const testDate = new Date("December 31, 2023 23:59:55");
     const nowDate = new Date().getTime();
     const remaining = newYearDate - nowDate;
@@ -79,17 +80,9 @@ function App() {
 
     return (
       <>
-        {done ? (
-          <div className="z-0">
-            <Particles
-              init={particleInitFirework}
-              options={{ preset: "fireworks" }}
-            />
-          </div>
-        ) : null}
         <div className="z-50 text-white mb-8 font-bold lg:text-2xl text-xl">
           <span>
-            {days}d {hours}h {minutes}m {seconds}s Time Left
+            {days}d {hours}h {minutes}m {seconds}s To 2025
           </span>
         </div>
       </>
