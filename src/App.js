@@ -1,5 +1,6 @@
 import Particles from "react-particles";
 import { loadSnowPreset } from "tsparticles-preset-snow";
+import { loadFireworksPreset } from "tsparticles-preset-fireworks";
 import { loadFireflyPreset } from "tsparticles-preset-firefly";
 import { Typewriter } from "react-simple-typewriter";
 import { useState, useEffect } from "react";
@@ -11,6 +12,7 @@ import Galery from "./components/Galery";
 
 function App() {
   const [hide, setHide] = useState("");
+  const [done, setDone] = useState(false);
   const [msg, setMsg] = useState([
     "Thank You 2023 ✨",
     "So Much Story We Made In 2023",
@@ -48,6 +50,9 @@ function App() {
   const particleInit = async (engine) => {
     await loadFireflyPreset(engine);
   };
+  const particleInitFirework = async (engine) => {
+    await loadFireworksPreset(engine);
+  };
 
   function timeLeft() {
     const newYearDate = new Date("January 1, 2024 00:00:00");
@@ -57,34 +62,44 @@ function App() {
     return remaining;
   }
 
+  const newArrays = [...msg];
   const CountdownRenderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       // Countdown has completed, set the state for Happy New Year
-      const newArray = [...msg];
-
+      setDone(true);
       // Add the new item to the first index
-      newArray.unshift("Happy New Year 🎉");
+      newArrays.unshift("Happy New Year 🎉");
 
       // Update the state with the new array
-      setMsg(newArray);
 
       setHide("hidden");
+      setMsg(newArrays);
       return null; // Render nothing after completion
     }
 
     return (
-      <div className="z-50 text-white mb-8 font-bold lg:text-2xl text-xl">
-        <span>
-          {days}d {hours}h {minutes}m {seconds}s Time Left
-        </span>
-      </div>
+      <>
+        {done ? (
+          <div className="z-0">
+            <Particles
+              init={particleInitFirework}
+              options={{ preset: "fireworks" }}
+            />
+          </div>
+        ) : null}
+        <div className="z-50 text-white mb-8 font-bold lg:text-2xl text-xl">
+          <span>
+            {days}d {hours}h {minutes}m {seconds}s Time Left
+          </span>
+        </div>
+      </>
     );
   };
 
   return (
     <div className="overflow-x-hidden">
       <div className="z-0">
-        <Particles init={particleInit} options={{ preset: "firefly" }} />
+        <Particles init={particleInit} options={{ preset: "firefly" }} />;
       </div>
       <div className="flex flex-col justify-center items-center min-h-screen">
         <div className="h-screen flex flex-col items-center justify-center">
