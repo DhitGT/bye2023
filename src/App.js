@@ -117,7 +117,7 @@ function App() {
           <div className="absolute bottom-10 animate-bounce flex items-center justify-center text-white flex-col">
             scroll down
             <svg
-              class="w-6 h-6 text-gray-800 dark:text-white"
+              class="w-6 mt-2 h-6 text-gray-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
