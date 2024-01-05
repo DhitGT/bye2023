@@ -143,7 +143,11 @@ function App() {
             ))}
           </div>
           <div className="w-full">
-            <iframe src="https://pixeldrain.com/u/7yFLj2T4?embed" style="border: none; width: 800px; max-width: 100%; height: 600px; max-height: 100%; border-radius: 8px;"></iframe>
+            <iframe
+              src="https://pixeldrain.com/u/7yFLj2T4?embed"
+              className="w-full h-full border-none"
+              style={{ borderRadius: '8px' }}
+            ></iframe>
           </div>
         </div>
       </div>
