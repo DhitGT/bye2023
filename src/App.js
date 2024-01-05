@@ -142,6 +142,9 @@ function App() {
               <MsgCard data={message} />
             ))}
           </div>
+          <div className="w-full">
+            <iframe src="https://pixeldrain.com/u/7yFLj2T4?embed" style="border: none; width: 800px; max-width: 100%; height: 600px; max-height: 100%; border-radius: 8px;"></iframe>
+          </div>
         </div>
       </div>
       <div className="my-4 w-screen items-center justify-center flex gap-2">
